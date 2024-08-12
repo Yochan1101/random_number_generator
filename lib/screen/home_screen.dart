@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:random_number_generator/constants/color.dart';
 
@@ -28,17 +30,28 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               // 버튼이 있는곳
               _Footer(
-                onPressed: () {
-                  setState(() {
-                    numbers = [111, 222, 333];
-                  });
-                },
+                onPressed: generateRandomNumber,
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  generateRandomNumber() {
+    final random = Random();
+    final Set<int> newNumbers = {};
+
+    while (newNumbers.length < 3) {
+      final randomNumber = random.nextInt(1000);
+
+      newNumbers.add(randomNumber);
+    }
+
+    setState(() {
+      numbers = newNumbers.toList();
+    });
   }
 }
 
