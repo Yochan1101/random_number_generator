@@ -6,6 +6,7 @@ void main() {
   runApp(
     MaterialApp(
       home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
     ),
   );
 }
