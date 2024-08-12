@@ -60,12 +60,22 @@ class _Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Text('''
-              123
-              456
-              789
-              '''),
-    );
+        child: Column(
+      children: [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9], // Row(
+      ]
+          .map((e) => Row(
+                children: e
+                    .map((num) => Text(
+                          num.toString(),
+                          style: TextStyle(color: Colors.white),
+                        ))
+                    .toList(),
+              ))
+          .toList(),
+    ));
   }
 }
 
