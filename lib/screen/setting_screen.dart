@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:random_number_generator/components/number_to_image.dart';
 import 'package:random_number_generator/constants/color.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -42,21 +43,9 @@ class _Number extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        child: Row(
-          children: maxNumber
-              .toInt()
-              .toString()
-              .split('')
-              .map(
-                (num) => Image.asset(
-                  'asset/img/$num.png',
-                  width: 50,
-                  height: 70,
-                ),
-              )
-              .toList(),
-        ),
-      ),
+          child: NumberToImage(
+        number: maxNumber.toInt(),
+      )),
     );
   }
 }

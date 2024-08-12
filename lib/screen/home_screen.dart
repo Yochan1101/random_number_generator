@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:random_number_generator/components/number_to_image.dart';
 import 'package:random_number_generator/constants/color.dart';
 import 'package:random_number_generator/screen/setting_screen.dart';
 
@@ -102,20 +103,7 @@ class _Body extends StatelessWidget {
     return Expanded(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: numbers
-          .map((e) => e.toString().split(''))
-          .map((e) => Row(
-                children: e
-                    .map(
-                      (num) => Image.asset(
-                        'asset/img/$num.png',
-                        width: 50,
-                        height: 70,
-                      ),
-                    )
-                    .toList(),
-              ))
-          .toList(),
+      children: numbers.map((e) => NumberToImage(number: e)).toList(),
     ));
   }
 }
