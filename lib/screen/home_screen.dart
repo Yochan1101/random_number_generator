@@ -61,6 +61,7 @@ class _Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
         child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         [1, 2, 3],
         [4, 5, 6],
@@ -68,10 +69,13 @@ class _Body extends StatelessWidget {
       ]
           .map((e) => Row(
                 children: e
-                    .map((num) => Text(
-                          num.toString(),
-                          style: TextStyle(color: Colors.white),
-                        ))
+                    .map(
+                      (num) => Image.asset(
+                        'asset/img/$num.png',
+                        width: 50,
+                        height: 70,
+                      ),
+                    )
                     .toList(),
               ))
           .toList(),
